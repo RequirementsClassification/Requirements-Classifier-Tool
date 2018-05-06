@@ -1,3 +1,20 @@
-<input [(ngModel)]="apiKey" name="apiKey" type="text" placeholder="Enter your API key here">
-<textarea [(ngModel)]="document" name="document" cols="100" rows="10" placeholder="Enter your requirements document here"></textarea>
-<button (click)="onGoPressed()" >Go</button>
+<div class="jumbotron">
+    <h1>Requirements Classifer</h1>
+    <p>This application takes in Requirements document in text files and gives you a better way to see your requirements in clusters.&nbsp;</p>
+    <p class="text-center"><a class="btn btn-primary" role="button" href="#">Get API Key to use the classifier</a></p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form (submit)="onGoPressed()">
+                <div class="form-group">
+                	<input [(ngModel)]="apiKey" name="apiKey" class="form-control text-center" type="text" placeholder="Enter your API Key here">
+                </div>
+                <div class="form-group">
+                	<textarea [(ngModel)]="document" name="document" class="form-control" rows="15" placeholder="Feed In your requirements document"></textarea>
+                </div>
+                <div class="form-group text-center"><button class="btn btn-primary" type="submit">Classify</button></div>
+            </form>
+        </div>
+    </div>
+</div>
