@@ -16,8 +16,8 @@
                 <div class="form-group text-center"><button class="btn btn-primary" type="submit">Classify</button></div>
             </form>
             
-            <div *ngIf = 'classified'>
-                <app-display-data classifiedData="classified"></app-display-data>
+            <div *ngIf="this.classified">
+                <app-display-data [classifiedData]="this.classified"></app-display-data>
             </div>
         </div>
     </div>

@@ -20,7 +20,6 @@ export class GatherDataComponent implements OnInit {
 		this.classifierService.getClusters(this.apiKey, this.document)
 		.subscribe(data => {
 			this.classified = data;
-			console.log(data);
 		}, err =>{
 			alert("Please check your API key or document")
 			console.log(err);

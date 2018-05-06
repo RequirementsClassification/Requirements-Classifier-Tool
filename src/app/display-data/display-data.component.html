@@ -1,9 +1,30 @@
-<div *ngFor="let cla of classifiedData">
+<div class="container">
+	<div class="row">
+		<div *ngFor="let cla of classifiedData" class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<ul class="list-group">
+						<li *ngFor="let i of cla.clusterTopics" class="list-group-item"><span>{{i}}</span></li>
+					</ul>
+					<div>
+						<a class="btn btn-primary" [attr.data-toggle]="'collapse'" [attr.aria-expanded]="false" [attr.aria-controls]="getHash(cla.clusterTopics[0])" [attr.role]="'button'" href="#content{{getHash(cla.clusterTopics[0])}}">Show sentences</a>
+						<div class="collapse" id="content{{getHash(cla.clusterTopics[0])}}">
+							<ul class="list-group">
+								<li *ngFor="let key of objectKeys(cla.clusteredSentences)" class="list-group-item"><span>{{cla.clusteredSentences[key]}}</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div *ngFor="let cla of classifiedData.results.clusters">
 	<a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" role="button" href="#collapse-1">Cluster Name</a>
 
-    <div class="collapse" id="collapse-1">
-        <ul class="list-group">
-            <li class="list-group-item"><span>Requirement 1</span></li>
-        </ul>
-    </div>
-</div>
+	<div class="collapse" id="collapse-1">
+		<ul class="list-group">
+			<li class="list-group-item"><span>Requirement 1</span></li>
+		</ul>
+	</div>
+</div> -->
