@@ -6,17 +6,20 @@ import { ClassifierService } from '../services/classifier.service';
 	templateUrl: './gather-data.component.html',
 	styleUrls: ['./gather-data.component.css']
 })
+
 export class GatherDataComponent implements OnInit {
 	apiKey: String;
 	document: String;
+	classified: any;
 	constructor(private classifierService: ClassifierService) { }
 
 	ngOnInit() {
 	}
 
-	onGoPressed(){
-		var an = this.classifierService.getClusters(this.apiKey, this.document)
+	onClassifyPressed(){
+		this.classifierService.getClusters(this.apiKey, this.document)
 		.subscribe(data => {
+			this.classified = data;
 			console.log(data);
 		}, err =>{
 			alert("Please check your API key or document")
